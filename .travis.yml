@@ -7,7 +7,6 @@ services:
   - redis-server  
 env:
   - NODE_ENV=development
-  - NODE_ENV=production
 cache:  
   directories:
     - "node_modules"
