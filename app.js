@@ -20,6 +20,8 @@ dotenv.load({
 const errorController = require('./controllers/api/error');
 const authController = require('./controllers/api/auth');
 const profileController = require('./controllers/api/profile');
+const userController = require('./controllers/api/user');
+const chatController = require('./controllers/api/chat');
 
 const socketConnectionController = require('./controllers/socket/connection');
 
@@ -58,6 +60,8 @@ app.post('/api/authenticate', authController.authenticate);
 app.post('/api/authenticate/confirm', authController.confirmAuthenticate);
 app.get('/api/authenticate/user', authMiddleware.isAuthenticated, authController.user);
 app.post('/api/profile/edit', authMiddleware.isAuthenticated, profileController.edit);
+app.post('/api/user/info', authMiddleware.isAuthenticated, userController.info);
+app.post('/api/chats', authMiddleware.isAuthenticated, chatController.chats);
 
 // Socket
 io.adapter(redis({

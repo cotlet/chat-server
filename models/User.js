@@ -44,7 +44,9 @@ const UserSchema = new mongoose.Schema({
     default: false
   },
   profile: {
-    name: String
+    name: String,
+    avatar: String,
+    bio: String
   }
 }, {
   timestamps: true
